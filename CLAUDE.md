@@ -25,6 +25,21 @@ A flat, wheat-covered dimension with a sandy golden sky.
 **To tweak wheat density:** edit `wheat_field.json` (`tries`, `xz_spread`).  
 **To change terrain layers:** edit `farmland.json` (`layers` array).
 
+## Intro Screen
+
+A full-screen intro shown every time any world loads. Pauses the game (singleplayer) until dismissed.
+
+**To test:** load any world — the screen appears automatically on join.  
+**Dismiss:** press any key or click anywhere.
+
+**Key files:**
+- `src/client/java/com/example/IntroScreen.java` — screen rendering (background, placeholder art box, story text, prompt)
+- `src/client/java/com/example/ExampleModClient.java` — registers the `ClientPlayConnectionEvents.JOIN` hook that shows the screen
+
+**Story text:** edit the `LINES` array in `IntroScreen.java`.  
+**Artwork:** replace the placeholder `context.fill` block with a `drawTexturedQuad` call. Place the PNG at `src/main/resources/assets/modid/textures/gui/intro.png`.  
+**Note on `drawTexturedQuad` in 1.21.11:** param order is `(id, x1, x2, y1, y2, u1, u2, v1, v2)` — x-range then y-range, not top-left/bottom-right.
+
 ## Special Spawn Block
 
 On every respawn, a `modid:special_spawn_block` is placed directly under the player. It glows (luminance 10), is stone-colored, and requires a tool to break.
