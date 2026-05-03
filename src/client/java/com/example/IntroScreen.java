@@ -1,10 +1,12 @@
 package com.example;
 
+import com.example.ExampleSounds;
 import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.input.KeyInput;
+import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -34,6 +36,16 @@ public class IntroScreen extends Screen {
     private IntroScreen(int screenIndex) {
         super(Text.empty());
         this.screenIndex = screenIndex;
+    }
+
+    @Override
+    public void init() {
+        super.init();
+        if (screenIndex == 0) {
+            this.client.getSoundManager().play(
+                PositionedSoundInstance.ambient(ExampleSounds.INTRO_MUSIC, 1.0f, 1.0f)
+            );
+        }
     }
 
     @Override

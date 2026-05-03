@@ -24,5 +24,6 @@ public class ExampleMod implements ModInitializer {
 		LOGGER.info("Hello this is Felix!");
 		ExampleBlocks.register();
 		ExampleEvents.register();
+		ExampleSounds.register();
 	}
 }
