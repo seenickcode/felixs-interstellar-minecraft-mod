@@ -109,7 +109,7 @@ public class IntroScreen extends Screen {
 
     @Override
     public boolean shouldPause() {
-        return true;
+        return false;
     }
 
     @Override
